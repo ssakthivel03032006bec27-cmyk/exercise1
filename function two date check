@@ -1,0 +1,13 @@
+#include <chrono>
+#include <cmath>
+using namespace std;
+using namespace std::chrono;
+bool is_exact(year_month_day d1, year_month_day d2) {
+    int m1 = static_cast<int>(d1.year()) * 12 + static_cast<unsigned>(d1.month());
+    int m2 = static_cast<int>(d2.year()) * 12 + static_cast<unsigned>(d2.month());
+    return abs(m1 - m2) == 1 && d1.day() == d2.day();
+}
+bool is_less(year_month_day d1, year_month_day d2) {
+    int days = abs((sys_days(d1) - sys_days(d2)).count());
+    return days > 0 && days < 30;
+}
