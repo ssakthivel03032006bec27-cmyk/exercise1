@@ -1,0 +1,15 @@
+#include <iostream>
+bool haveOppositeSigns(int x, int y) {
+    return (x ^ y) < 0;
+}
+int main() {
+    int a = 100;
+    int b = -200;
+    int c = 50;
+    std::cout << std::boolalpha; // Prints true/false instead of 1/0
+    std::cout << "Do " << a << " and " << b << " have opposite signs? " 
+              << haveOppositeSigns(a, b) << "\n"; // Output: true
+    std::cout << "Do " << a << " and " << c << " have opposite signs? " 
+              << haveOppositeSigns(a, c) << "\n"; // Output: false
+    return 0;
+}
