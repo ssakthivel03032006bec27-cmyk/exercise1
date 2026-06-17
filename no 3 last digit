@@ -1,0 +1,15 @@
+#include <iostream>
+int shortestRepunit(int n) {
+    int rem = 0, len = 0;
+    do {
+        rem = (rem * 10 + 1) % n;
+        len++;
+    } while (rem != 0);
+    return len;
+}
+int main() {
+    int n;
+    if (std::cin >> n && n % 10 == 3) {
+        std::cout << shortestRepunit(n) << "\n";
+    }
+}
