@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+void reverseRange(std::string::iterator start, std::string::iterator end) {
+    std::reverse(start, end);
+}
+int main() {
+    std::string sentence = "have a nice day";
+    std::reverse(sentence.begin(), sentence.end());
+    auto wordStart = sentence.begin();
+    for (auto it = sentence.begin(); it <= sentence.end(); ++it) {
+        if (it == sentence.end() || *it == ' ') {
+            std::reverse(wordStart, it);
+            wordStart = it + 1;
+        }
+    }
+    std::cout << sentence << std::endl;    
+    return 0;
+}
