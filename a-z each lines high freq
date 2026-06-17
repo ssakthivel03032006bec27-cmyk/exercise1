@@ -1,0 +1,23 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+int main() {
+    int N;
+    if (cin >> N && getline(cin, string())) {
+        while (N--) {
+            string s;
+            getline(cin, s);
+            int freq[128] = {0}, mx = 0;
+            
+            for (char c : s) mx = max(mx, ++freq[(int)c]);
+            
+            if (mx > 0) {
+                for (char c = 'A'; c <= 'Z'; ++c) if (freq[(int)c] == mx) cout << c;
+                for (char c = 'a'; c <= 'z'; ++c) if (freq[(int)c] == mx) cout << c;
+            }
+            cout << "\n";
+        }
+    }
+    return 0;
+}
